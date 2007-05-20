@@ -1,6 +1,6 @@
 %define	name	openmortal
 %define	version	0.7
-%define	release %mkrel 11
+%define	release %mkrel 12
 %define	Summary	Parody of Mortal Kombat
 
 Summary:	%{Summary}
@@ -95,5 +95,3 @@ EOF
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_datadir}/applications/mandriva-%{name}.desktop
-
-
