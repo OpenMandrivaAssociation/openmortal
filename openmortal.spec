@@ -16,7 +16,6 @@ Patch:		%{name}-0.7-extra-qualification.patch
 License:	GPL
 Group:		Games/Arcade
 Url:		http://openmortal.sourceforge.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_net-devel
