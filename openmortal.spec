@@ -1,6 +1,6 @@
 %define	name	openmortal
 %define	version	0.7
-%define	release %mkrel 12
+%define	release %mkrel 13
 %define	Summary	Parody of Mortal Kombat
 
 Summary:	%{Summary}
