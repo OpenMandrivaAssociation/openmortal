@@ -1,7 +1,7 @@
 %define	name openmortal
 %define	version 0.7.1
 %define sversion 0.7
-%define	release %mkrel 5
+%define	release 6
 %define	summary Parody of Mortal Kombat
 
 Summary: %{summary}
@@ -23,12 +23,12 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: SDL_image-devel
 BuildRequires: SDL_mixer-devel
 BuildRequires: SDL_net-devel
-#BuildRequires: SDL_ttf-devel
+BuildRequires: SDL_ttf-devel
 BuildRequires: freetype2-devel
 BuildRequires: perl-devel
 
 %description
-Mortál Szombat is a parody of the popular coin-up game, Mortal Kombat.
+Open Mortal is a parody of the popular coin-up game, Mortal Kombat.
 It is currently playable (maybe even enjoyable), although it is still
 under development. Only two-player game is supported, single-player games
 against computer opponent is not planned yet.
@@ -40,11 +40,11 @@ There are currently 9 playable characters, and 8 more in the making!
 %patch -p0
 unzip %{SOURCE1} -d data/gfx
 unzip %{SOURCE2} -d data/gfx
-perl -pi -e "s|level6.jpg|level6.jpg level12.desc level12_arena.png\
- level12_background.png level12_left.png level12_right.png level13.desc\
- level13_arena.png level13_background.png level13_plane2.png|"\
- data/gfx/Makefile.in
 
+#perl -pi -e "s|level6.jpg|level6.jpg level12.desc level12_arena.png\
+# level12_background.png level12_left.png level12_right.png level13.desc\
+# level13_arena.png level13_background.png level13_plane2.png|"\
+# data/gfx/Makefile.in
 
 %build
 %configure --bindir=%{_gamesbindir} \
@@ -53,14 +53,13 @@ perl -pi -e "s|level6.jpg|level6.jpg level12.desc level12_arena.png\
 %make
 
 %install
-%{__rm} -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Name=Mortal Szombat
+Name=Open Mortal
 Comment=%{summary}
 Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
@@ -74,18 +73,8 @@ EOF
 %{__install} %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
 %{__install} %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
-
 %clean
-%{__rm} -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(755,root,root,755)
