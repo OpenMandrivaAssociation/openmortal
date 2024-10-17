@@ -18,7 +18,7 @@ Source13: %{name}-48x48.png
 Patch: %{name}-0.7-extra-qualification.patch
 License: GPL
 Group: Games/Arcade
-Url: http://openmortal.sourceforge.net/
+Url: https://openmortal.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: SDL_image-devel
 BuildRequires: SDL_mixer-devel
