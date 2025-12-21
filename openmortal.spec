@@ -20,6 +20,11 @@ License: GPL
 Group: Games/Arcade
 Url: https://openmortal.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: SDL_image-devel
 BuildRequires: SDL_mixer-devel
 BuildRequires: SDL_net-devel
